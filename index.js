@@ -1,10 +1,10 @@
 // things that are required
 const inquirer = require('inquirer');
 const fs = require('fs');
-const Employee = require('./lib/Employee');
-const Manager = require('./lib/Manager');
-const Engineer = require('./lib/Engineer');
-const Intern = require('./lib/Intern');
+//const Employee = require('./lib/Employee');
+// const Manager = require('./lib/Manager');
+// const Engineer = require('./lib/Engineer');
+// const Intern = require('./lib/Intern');
 
 // list of team members
 let team = [];
@@ -102,7 +102,10 @@ function addEngineer() {
     inquirer.prompt(engineer)
     .then((data) => {
         team.push(data.name, data.id, data.email, data.github);
+        createTeam();
+
     })
+    
 }
 // intern questions
 const intern = [
@@ -152,13 +155,33 @@ function addIntern() {
     inquirer.prompt(intern)
     .then((data) => {
         team.push(data.name, data.id, data.email, data.school);
+        createTeam();
     })
+
+    
 };
 
 // create team function
 function createTeam() {
-    addIntern();
-    addEngineer();
+    inquirer.prompt([
+        {
+            type: 'list',
+            message:'Please select an option:',
+            name: 'nextOption',
+            choices: ['Add Engineer', 'Add Intern', 'Team Complete'],
+        },
+    ])
+    .then((input)=>{
+        if (input.nextOption === 'Add Engineer') {
+            addEngineer();
+        } else if (input.nextOption === "Add Intern") {
+            addIntern();
+        } else if (input.nextOption === "Team Complete") {
+            //writeFile();
+            console.log(team);
+        }
+      }            
+    )
 };
 // TODO: Create a function to initialize app
 function init() {
@@ -171,7 +194,7 @@ function init() {
         team.push(data.name, data.id, data.email, data.officeNumber);
        // writeToFile('yourREADME.md', generateMarkdown(data));
         createTeam();
-        console.log(team);
+        
     });
     
 }
