@@ -5,8 +5,9 @@ const fs = require('fs');
 // const Manager = require('./lib/Manager');
 // const Engineer = require('./lib/Engineer');
 // const Intern = require('./lib/Intern');
+const createHTML = require('./src/createHTML');
 
-// list of team members
+// list of team members. Input is pushed into blank array
 let team = [];
 
 // validate input
@@ -161,6 +162,12 @@ function addIntern() {
     
 };
 
+// writefile
+function writeFile(fileName, data) {
+    fs.writeFile('./dist'+ fileName, data, (err) =>
+    err ? console.log(err) : console.log("Your Team File has been made!"))
+}
+
 // create team function
 function createTeam() {
     inquirer.prompt([
@@ -171,18 +178,21 @@ function createTeam() {
             choices: ['Add Engineer', 'Add Intern', 'Team Complete'],
         },
     ])
+    //options for createTeam function - Team Complete writes the file
     .then((input)=>{
         if (input.nextOption === 'Add Engineer') {
             addEngineer();
         } else if (input.nextOption === "Add Intern") {
             addIntern();
         } else if (input.nextOption === "Team Complete") {
-            //writeFile();
+            writeFile('yourHTML.html', createHTML(data));
             console.log(team);
         }
       }            
     )
 };
+
+
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(manager)
