@@ -1,10 +1,10 @@
 // things that are required
 const inquirer = require('inquirer');
 const fs = require('fs');
-//const Employee = require('./lib/Employee');
-// const Manager = require('./lib/Manager');
-// const Engineer = require('./lib/Engineer');
-// const Intern = require('./lib/Intern');
+const Employee = require('./lib/Employee');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 const createHTML = require('./src/createHTML');
 
 // list of team members. Input is pushed into blank array
@@ -163,8 +163,8 @@ function addIntern() {
 };
 
 // writefile
-function writeFile(fileName, data) {
-    fs.writeFile('./dist'+ fileName, data, (err) =>
+function writeToFile(data) {
+    fs.writeFile('./dist/yourTeam.html', data, (err) =>
     err ? console.log(err) : console.log("Your Team File has been made!"))
 }
 
@@ -185,7 +185,8 @@ function createTeam() {
         } else if (input.nextOption === "Add Intern") {
             addIntern();
         } else if (input.nextOption === "Team Complete") {
-            writeFile('yourHTML.html', createHTML(data));
+            let content = createHTML(team);
+            writeToFile(content);
             console.log(team);
         }
       }            
