@@ -8,7 +8,7 @@ const Intern = require('./lib/Intern');
 const createHTML = require('./src/createHTML');
 
 // list of team members. Input is pushed into blank array
-let team = [];
+const team = [];
 
 // validate input
 const validateInput = (nameInput) => nameInput ? true : (console.log("Please enter a value"), false);
@@ -185,8 +185,8 @@ function createTeam() {
         } else if (input.nextOption === "Add Intern") {
             addIntern();
         } else if (input.nextOption === "Team Complete") {
-            let content = createHTML(team);
-            writeToFile(content);
+            let html = createHTML(team);
+            writeToFile(html);
             console.log(team);
         }
       }            
