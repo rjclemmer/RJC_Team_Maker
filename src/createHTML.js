@@ -32,7 +32,7 @@ function createHTML(data) {
 content +=`    
 <div class="card m-3 shadowCard border-dark d-flex justify-content-around" style="width: 18rem;">
 <div class="card-header text-center bg-danger text-light">
-${data[0].getName()} : ${data[0].getRole()}
+${data[0].getName()} : ${data[0].getRole()} ⭐⭐⭐
 </div>
 <div>
 <ul class="list-group list-group-flush">
@@ -52,13 +52,13 @@ if (data[i].role === "Engineer") {
 content += `
 <div class="card m-3 shadowCard border-dark d-flex justify-content-around" style="width: 18rem;">
 <div class="card-header text-center bg-danger text-light">
-${data[i].getName()} : ${data[i].getRole()}
+${data[i].getName()} : ${data[i].getRole()} ⭐⭐
 </div>
 <div>
 <ul class="list-group list-group-flush">
 <li class="list-group-item">ID: ${data[i].getId()}</li>
 <li class="list-group-item">Email:<a href ='mailto: ${data[i].getEmail()}'>${data[i].getEmail()}</a></li>
-<li class="list-group-item">Github: https://github.com/${data[i].getGithub()}</li>
+<li class="list-group-item">Github: <a target="_blank" href="https://github.com/${data[i].getGithub()}">${data[i].getGithub()}</a></li>
 </ul>
 </div>
 </div>
@@ -81,7 +81,7 @@ if (data[i].role === "Intern") {
 content += `
 <div class="card m-3 shadowCard border-dark d-flex justify-content-around" style="width: 18rem;">
 <div class="card-header text-center bg-danger text-light">
-${data[i].getName()} : ${data[i].getRole()}
+${data[i].getName()} : ${data[i].getRole()} ⭐
 </div>
 <div>
 <ul class="list-group list-group-flush">
