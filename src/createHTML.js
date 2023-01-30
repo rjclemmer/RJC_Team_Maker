@@ -22,19 +22,24 @@ function createHTML(data) {
             <h1 class='text-center'>OUR TEAM</h1>
         </header>
         <main>
-            <div class="container">
+            
     `
 
 
 //this displays the manager's content
 content +=`    
-<ul>
-<li>Name: ${data[0].getName()}</li>
-<li>Role: ${data[0].getRole()}</li>
-<li>ID: ${data[0].getId()}</li>
-<li>Email: ${data[0].getEmail()}</li>
-<li>Office Number: ${data[0].getOfficeNumber()}</li>
-</ul>`
+<div class="card m-3 shadowCard" style="width: 18rem;">
+<div class="card-header text-center bg-danger text-light">
+${data[0].getName()} : ${data[0].getRole()}
+</div>
+<div>
+<ul class="list-group list-group-flush">
+<li class="list-group-item">ID: ${data[0].getId()}</li>
+<li class="list-group-item">Email: ${data[0].getEmail()}</li>
+<li class="list-group-item">Office Number: ${data[0].getOfficeNumber()}</li>
+</ul>
+</div>
+</div>`
 
 // For Loop generates Engineer and Intern html
 
@@ -47,11 +52,14 @@ content += `
 <div class="card-header text-center bg-danger text-light">
 ${data[i].getName()} : ${data[i].getRole()}
 </div>
+<div>
 <ul class="list-group list-group-flush">
 <li class="list-group-item">ID: ${data[i].getId()}</li>
 <li class="list-group-item">Email:<a href ='mailto: ${data[i].getEmail()}'>${data[i].getEmail()}</a></li>
 <li class="list-group-item">Github: https://github.com/${data[i].getGithub()}</li>
 </ul>
+</div>
+</div>
 `
 }
 
@@ -69,22 +77,25 @@ ${data[i].getName()} : ${data[i].getRole()}
 // adds Intern html
 if (data[i].role === "Intern") {
 content += `
-<ul>
-<li>Name: ${data[i].getName()}</li>
-<li>Role: ${data[i].getRole()}</li>
-<li>ID: ${data[i].getId()}</li>
-<li>Email: ${data[i].getEmail()}</li>
-<li>Github: ${data[i].getSchool()}</li>
+<div class="card m-3 shadowCard" style="width: 18rem;">
+<div class="card-header text-center bg-danger text-light">
+${data[i].getName()} : ${data[i].getRole()}
+</div>
+<div>
+<ul class="list-group list-group-flush">
+<li class="list-group-item">ID: ${data[i].getId()}</li>
+<li class="list-group-item">Email:<a href ='mailto: ${data[i].getEmail()}'>${data[i].getEmail()}</a></li>
+<li class="list-group-item">Github: https://github.com/${data[i].getSchool()}</li>
 </ul>
+</div>
+</div>
 `
 }
-
-
         
 };
 
 content += `
-</div>
+
 </main>    
 </body>
 </html>    
