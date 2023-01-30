@@ -17,25 +17,27 @@ function createHTML(data) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
         <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     </head>
+    <div class="bg-warning"> 
     <body>
         <header>
             <h1 class='text-center'>OUR TEAM</h1>
         </header>
         <main>
+        <div class="row"> 
             
     `
 
 
 //this displays the manager's content
 content +=`    
-<div class="card m-3 shadowCard" style="width: 18rem;">
+<div class="card m-3 shadowCard border-dark d-flex justify-content-around" style="width: 18rem;">
 <div class="card-header text-center bg-danger text-light">
 ${data[0].getName()} : ${data[0].getRole()}
 </div>
 <div>
 <ul class="list-group list-group-flush">
 <li class="list-group-item">ID: ${data[0].getId()}</li>
-<li class="list-group-item">Email: ${data[0].getEmail()}</li>
+<li class="list-group-item">Email: <a href ='mailto: ${data[0].getEmail()}'>${data[0].getEmail()}</a></li>
 <li class="list-group-item">Office Number: ${data[0].getOfficeNumber()}</li>
 </ul>
 </div>
@@ -48,7 +50,7 @@ for (let i =1; i < data.length; i++) {
 // adds Engineer html
 if (data[i].role === "Engineer") {
 content += `
-<div class="card m-3 shadowCard" style="width: 18rem;">
+<div class="card m-3 shadowCard border-dark d-flex justify-content-around" style="width: 18rem;">
 <div class="card-header text-center bg-danger text-light">
 ${data[i].getName()} : ${data[i].getRole()}
 </div>
@@ -77,7 +79,7 @@ ${data[i].getName()} : ${data[i].getRole()}
 // adds Intern html
 if (data[i].role === "Intern") {
 content += `
-<div class="card m-3 shadowCard" style="width: 18rem;">
+<div class="card m-3 shadowCard border-dark d-flex justify-content-around" style="width: 18rem;">
 <div class="card-header text-center bg-danger text-light">
 ${data[i].getName()} : ${data[i].getRole()}
 </div>
@@ -85,7 +87,7 @@ ${data[i].getName()} : ${data[i].getRole()}
 <ul class="list-group list-group-flush">
 <li class="list-group-item">ID: ${data[i].getId()}</li>
 <li class="list-group-item">Email:<a href ='mailto: ${data[i].getEmail()}'>${data[i].getEmail()}</a></li>
-<li class="list-group-item">Github: https://github.com/${data[i].getSchool()}</li>
+<li class="list-group-item">School: ${data[i].getSchool()}</li>
 </ul>
 </div>
 </div>
@@ -96,8 +98,10 @@ ${data[i].getName()} : ${data[i].getRole()}
 
 content += `
 
+</div>
 </main>    
 </body>
+</div>  
 </html>    
 `
 
