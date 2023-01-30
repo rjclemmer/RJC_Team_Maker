@@ -8,9 +8,13 @@ Because this Challenge will require the use of the `Inquirer` package, ensure th
 
 Testing is key to making code maintainable, so you’ll also write a unit test for every part of your code and ensure that it passes each test.
 
+## Screencastify
+
+
+
 ## Screenshot 
-<img src="./assets/screenshot.png" alt="Photo of Team Maker" title="Photo of Team Maker">
-Web capture_30-1-2023_11223_.jpeg
+<img src="./assets/screenshot.jpeg" alt="Photo of Team Maker" title="Photo of Team Maker">
+
 ## User Story
 
 ```md
