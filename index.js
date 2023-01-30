@@ -102,7 +102,7 @@ const engineer = [
 function addEngineer() {
     inquirer.prompt(engineer)
     .then((data) => {
-        team.push(data.name, data.id, data.email, data.github);
+        team.push(new Engineer(data.name, data.id, data.email, data.github));
         createTeam();
 
     })
@@ -155,7 +155,7 @@ const intern = [
 function addIntern() {
     inquirer.prompt(intern)
     .then((data) => {
-        team.push(data.name, data.id, data.email, data.school);
+        team.push( new Intern(data.name, data.id, data.email, data.school));
         createTeam();
     })
 
