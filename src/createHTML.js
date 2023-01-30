@@ -8,11 +8,11 @@ function createHTML(data) {
     content = `<p>${data}</p>`;
     content +=`    
     <ul>
-    <li>Name: ${data[0]}</li>
-    <li>Role: Manager </li>
-    <li>ID: ${data[1]}</li>
-    <li>Email: ${data[2]}</li>
-    <li>Office Number: ${data[3]}</li>
+    <li>Name: ${data[0].getName()}</li>
+    <li>Role: ${data[0].getRole()}</li>
+    <li>ID: ${data[0].getId()}</li>
+    <li>Email: ${data[0].getEmail()}</li>
+    <li>Office Number: ${data[0].getOfficeNumber()}</li>
 </ul>`
     return content
 }

@@ -202,7 +202,8 @@ function init() {
 
 //console logs input
     .then((data) => {
-        team.push(data.name, data.id, data.email, data.officeNumber);
+        data.role = "Manager";
+        team.push(new Manager(data.name, data.id, data.email, data.officeNumber));
        // writeToFile('yourREADME.md', generateMarkdown(data));
         createTeam();
         
