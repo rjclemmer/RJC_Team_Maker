@@ -1,5 +1,6 @@
 const Employee = require('../lib/Employee');
 const emp = new Employee("Robert Clemmer","001","robert@test.com");
+
 test("constructor returns name, id #, and email of employee", () => {
     expect(emp.name).toBe("Robert Clemmer");
     expect(emp.id).toBe("001");
